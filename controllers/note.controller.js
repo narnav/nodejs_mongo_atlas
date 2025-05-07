@@ -1,4 +1,4 @@
-const Note = require('./note.model');
+const Note = require('../models/note.model');
 
 // Create and Save a new Note
 exports.create = (req, res) => {
@@ -16,8 +16,7 @@ exports.create = (req, res) => {
     });
 
     // Save Note in the database
-    note.save()
-    .then(data => {
+    note.save().then(data => {
         res.send(data);
     }).catch(err => {
         res.status(500).send({

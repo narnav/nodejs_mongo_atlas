@@ -1,7 +1,7 @@
 const express = require("express");
 const dbConfig = require("./database.config");
 const mongoose = require("mongoose");
-
+const port =7000
 mongoose.Promise = global.Promise;
 
 // Connecting to the database
@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 });
 
 // listen for requests
-require("./note.routes")(app);
-app.listen(3005, () => {
-  console.log("Server is listening on port 3005");
+require("./routers/note.routes")(app);
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
